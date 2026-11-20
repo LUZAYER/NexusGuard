@@ -1,0 +1,16 @@
+1
+00:00:00,100 --> 00:00:08,350
+Our AI architecture combines supervised gradient boosting for known fraud vectors with unsupervised anomaly detection for zero-day patterns.
+
+2
+00:00:08,300 --> 00:00:14,770
+Simultaneously, in-memory graph algorithms detect circular cashout rings that escape tabular models.
+
+3
+00:00:14,770 --> 00:00:20,830
+TreeSHAP provides transparent mathematical attributions for localized regulatory compliance.
+
+4
+00:00:20,830 --> 00:00:30,890
+As an honest engineering limitation, these metrics were validated on synthetic benchmark data; institutional rollout requires direct integration with core banking switches.
+

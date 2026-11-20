@@ -1,0 +1,8 @@
+1
+00:00:00,100 --> 00:00:10,975
+Our precision-first architecture achieves a zero point nine two four PR-AUC and reduces false positive alerts by ninety-four point eight percent.
+
+2
+00:00:10,925 --> 00:00:27,512
+As an honest engineering limitation, these benchmarks were measured on a synthetic Mobile Financial Services corpus of two hundred twelve thousand transactions; institutional rollout requires integration with live core banking switches.
+

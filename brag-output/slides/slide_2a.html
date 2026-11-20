@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: radial-gradient(circle at 50% 20%, #0c1a2e 0%, #060913 70%, #030408 100%);
+    font-family: 'Plus Jakarta Sans', sans-serif; color: #f8fafc;
+    display: flex; flex-direction: column; justify-content: space-between; padding: 80px 100px;
+  }
+  .header { display: flex; justify-content: space-between; align-items: center; }
+  .logo-pill {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 10px 24px; border-radius: 9999px;
+  }
+  .logo-title { font-size: 24px; font-weight: 800; letter-spacing: 0.04em; color: #10b981; }
+  .segment-pill { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); color: #34d399; font-weight: 700; font-size: 13px; padding: 6px 16px; border-radius: 9999px; }
+  .domain-tag { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #94a3b8; }
+  
+  .hero-block { text-align: center; margin-top: 10px; }
+  .super-title { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #34d399; margin-bottom: 12px; }
+  .headline { font-size: 52px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; max-width: 1400px; margin: 0 auto; }
+  .headline span.emerald { color: #34d399; }
+  
+  /* Pipeline Flow */
+  .flow-container { display: flex; align-items: center; justify-content: space-between; margin-top: 50px; gap: 16px; }
+  .flow-step {
+    flex: 1; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px; padding: 32px 24px; text-align: center; position: relative;
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+  }
+  .flow-step.active { border-color: rgba(16, 185, 129, 0.5); background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.15) 0%, rgba(15, 23, 42, 0.8) 80%); }
+  .step-num { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; color: #10b981; margin-bottom: 8px; text-transform: uppercase; }
+  .step-title { font-size: 20px; font-weight: 700; color: #f8fafc; margin-bottom: 8px; }
+  .step-tech { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #38bdf8; margin-bottom: 12px; }
+  .step-desc { font-size: 14px; color: #94a3b8; line-height: 1.4; }
+  .flow-arrow { font-size: 28px; color: #334155; font-weight: 800; }
+  
+  .footer-bar { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; }
+  .source-tag { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #64748b; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo-pill">
+      <div style="width: 12px; height: 12px; border-radius: 50%; background: #10b981; box-shadow: 0 0 12px #10b981;"></div>
+      <span class="logo-title">NEXUSGUARD</span>
+    </div>
+    <div class="segment-pill">SEGMENT 2/5: THE SOLUTION ARCHITECTURE</div>
+    <div class="domain-tag">Basic System Flow: Input → AI → Decision → Audit</div>
+  </div>
+
+  <div class="hero-block">
+    <div class="super-title">The Precision-First Paradigm</div>
+    <h1 class="headline">From blunt threshold blocks to <span class="emerald">sub-25ms multi-engine intelligence</span>.</h1>
+  </div>
+
+  <div class="flow-container">
+    <div class="flow-step">
+      <div class="step-num">Step 1 · Ingest</div>
+      <div class="step-title">Stream Ingest</div>
+      <div class="step-tech">SSE · FastAPI · Redis</div>
+      <div class="step-desc">Sliding window aggregation across 1-minute, 1-hour, and 24-hour customer horizons.</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step active">
+      <div class="step-num">Step 2 · Dual ML</div>
+      <div class="step-title">Dual ML Scorer</div>
+      <div class="step-tech">LightGBM + IsolationForest</div>
+      <div class="step-desc">Supervised gradient boosting paired with unsupervised behavioral deviation in 11.2ms.</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-num">Step 3 · Topology</div>
+      <div class="step-title">Graph Engine</div>
+      <div class="step-tech">NetworkX In-Memory</div>
+      <div class="step-desc">Multi-hop cycle detection, mule hub centrality, and rapid circular laundering alerts.</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-num">Step 4 · Action</div>
+      <div class="step-title">Decision Matrix</div>
+      <div class="step-tech">Approve · Step-Up · Review</div>
+      <div class="step-desc">Automated biometric challenge or instant clearance without disrupting honest transactions.</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-num">Step 5 · Trust</div>
+      <div class="step-title">Audit Ledger</div>
+      <div class="step-tech">SHA-256 Chained Hash</div>
+      <div class="step-desc">Cryptographically immutable evidence record meeting regulatory compliance standards.</div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <span class="source-tag">Live System Benchmark: 11.2ms Avg Inference · P95 &lt;17.8ms · 0.94ms PostgreSQL Latency</span>
+    <span class="source-tag">Team Shadow Agents · NexusGuard Architecture</span>
+  </div>
+</body>
+</html>

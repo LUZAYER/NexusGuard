@@ -1,0 +1,31 @@
+{
+  "transaction_risk": {
+    "pr_auc": 0.924,
+    "roc_auc": 0.961,
+    "precision": 0.887,
+    "recall": 0.912,
+    "f1": 0.899,
+    "fpr": 0.012,
+    "fnr": 0.088,
+    "benchmark_label": "Synthetic benchmark"
+  },
+  "walletguard": {
+    "ato_recall": 0.942,
+    "ato_precision": 0.918,
+    "false_positive_rate": 0.009,
+    "benchmark_label": "Synthetic benchmark"
+  },
+  "anomaly_detection": {
+    "precision_at_k": 0.892,
+    "recall_at_k": 0.865,
+    "alert_volume_daily_mean": 14.2,
+    "benchmark_label": "Synthetic benchmark"
+  },
+  "false_positive_reduction_pct": 94.8,
+  "latency_p95_ms": 17.8,
+  "latency_avg_ms": 11.2,
+  "sla_ms": 25.0,
+  "total_corpus_transactions": 212749,
+  "active_wallets": 20000,
+  "limitation": "Evaluated on synthetic benchmark MFS dataset (212,749 txns) and public benchmarks. Production deployment requires core banking rail integration."
+}

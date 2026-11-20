@@ -1,0 +1,37 @@
+[
+  {
+    "id": "seg1_problem",
+    "start": 0.0,
+    "segment_duration": 30.0,
+    "text": "Every second, digital banking loses millions to fraud. But in high-growth mobile financial ecosystems like Bangladesh, blocking honest customers costs institutions four times more. Legacy systems rely on static threshold rules, causing a ninety-five percent false-positive storm. Worse, coordinated syndicates easily bypass single-account checks by layering micro-transfers across mule rings in under four minutes\u2014long before overnight batch jobs run.",
+    "audio_duration": 31.464
+  },
+  {
+    "id": "seg2_solution",
+    "start": 30.0,
+    "segment_duration": 30.0,
+    "text": "NexusGuard changes the paradigm from blunt blocklists to precision-first intelligence. Our unified engine ingests live transaction streams and scores risk in sub-twenty-five milliseconds. Instead of binary rejections, NexusGuard calculates multi-dimensional risk scores that trigger targeted actions: auto-approve legitimate users, issue step-up biometric challenges, or route complex syndicates for human review\u2014all sealed into an immutable audit ledger.",
+    "audio_duration": 29.352
+  },
+  {
+    "id": "seg3_demo",
+    "start": 60.0,
+    "segment_duration": 60.0,
+    "text": "Here is our working platform in action. In our live surveillance stream, transactions across twenty thousand wallets are scored in eleven milliseconds. When we open the ScamShield network graph, our topology engine detects an active money mule ring funneling micro-transfers into wallet fifty-five twelve. Clicking into the transaction reveals complete bilingual explainability\u2014English and Bangla reason codes powered by local feature attribution. The compliance officer inspects the evidence and executes an immediate step-up biometric challenge. Every decision is cryptographically committed to our tamper-evident audit ledger.",
+    "audio_duration": 41.88
+  },
+  {
+    "id": "seg4_ai_approach",
+    "start": 120.0,
+    "segment_duration": 30.0,
+    "text": "Our AI architecture combines supervised gradient boosting for known fraud vectors with unsupervised anomaly detection for zero-day patterns. Simultaneously, in-memory graph algorithms detect circular cashout rings that escape tabular models. TreeSHAP provides transparent mathematical attributions for localized regulatory compliance. As an honest engineering limitation, these metrics were validated on synthetic benchmark data; institutional rollout requires direct integration with core banking switches.",
+    "audio_duration": 30.96
+  },
+  {
+    "id": "seg5_impact",
+    "start": 150.0,
+    "segment_duration": 30.0,
+    "text": "NexusGuard cuts false-positive declines by ninety-four point eight percent, protecting honest commerce while stopping sophisticated syndicates. We offer predictable enterprise tiers and air-gapped sovereign deployments with zero-trust privacy. Next, we are integrating core banking switch adapters and federated multi-bank intelligence. ML Assesses. Graphs Connect. AI Investigates. Humans Decide. Built for the International AI Builders Congress by Team Shadow Agents.",
+    "audio_duration": 30.84
+  }
+]

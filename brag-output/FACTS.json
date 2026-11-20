@@ -1,0 +1,87 @@
+{
+  "project_name": "NexusGuard",
+  "team_name": "Shadow Agents",
+  "event_name": "International AI Builders Congress 2026",
+  "event_domain": "FinSphere AI",
+  "event_challenge": "FraudShield Challenge",
+  "tagline": "ML Assesses. Graphs Connect. AI Investigates. Humans Decide.",
+  "facts": {
+    "pr_auc": {
+      "value": 0.924,
+      "confidence_interval_95": [0.916, 0.932],
+      "source_file": "ml/transaction_risk/model.py",
+      "line_reference": 34,
+      "benchmark_label": "Synthetic MFS benchmark"
+    },
+    "roc_auc": {
+      "value": 0.961,
+      "confidence_interval_95": [0.954, 0.968],
+      "source_file": "ml/transaction_risk/model.py",
+      "line_reference": 35,
+      "benchmark_label": "Synthetic MFS benchmark"
+    },
+    "precision_at_recall": {
+      "precision": 0.887,
+      "recall": 0.912,
+      "f1_score": 0.899,
+      "source_file": "ml/transaction_risk/model.py",
+      "line_reference": 36,
+      "benchmark_label": "Synthetic MFS benchmark"
+    },
+    "walletguard_ato_precision": {
+      "precision": 0.918,
+      "recall": 0.942,
+      "false_positive_rate": 0.009,
+      "source_file": "ml/walletguard/model.py",
+      "line_reference": 31,
+      "benchmark_label": "Behavioral biometrics & ATO"
+    },
+    "false_positive_rate": {
+      "value": 0.012,
+      "percentage": "1.2%",
+      "reduction_vs_baseline": "-94.8%",
+      "source_file": "ml/transaction_risk/model.py",
+      "line_reference": 39,
+      "notes": "Reduces false positive alerts by 94.8% compared to static transaction threshold rules."
+    },
+    "latency": {
+      "average_ms": 11.2,
+      "p95_ms": 17.8,
+      "sla_target_ms": 25.0,
+      "database_latency_ms": 0.94,
+      "source_file": "frontend/components/landing/HeroSection.tsx",
+      "line_reference": 21,
+      "live_endpoint": "http://localhost:8000/api/v1/system/health"
+    },
+    "scale": {
+      "total_transactions_evaluated": 212749,
+      "customer_wallets_verified": 20000,
+      "total_alerts_generated": 7123,
+      "critical_risk_alerts": 4506,
+      "high_risk_alerts": 2617,
+      "moderate_risk_alerts": 21071,
+      "low_risk_transactions": 184555,
+      "investigation_cases": 60,
+      "alert_rate_per_10k": 334.8,
+      "graph_nodes": 24272,
+      "graph_edges": 34342,
+      "source_file": "backend/database/populate_risk_data.py",
+      "verification_method": "PostgreSQL live database counts"
+    },
+    "agentops_governance": {
+      "per_case_cost_cap_usd": 0.25,
+      "max_recursive_hops": 8,
+      "source_file": "docs/AI_BUILDERS_CONGRESS_SUBMISSION.md",
+      "line_reference": 91
+    },
+    "limitation": {
+      "statement": "Evaluated on synthetic Mobile Financial Services benchmark dataset (212k transactions) and public credit card fraud datasets. Does not guarantee 100% fraud eradication. Real institutional production requires integration with live core banking switches and central bank clearing networks.",
+      "source_file": "docs/AI_BUILDERS_CONGRESS_SUBMISSION.md",
+      "line_reference": 151
+    }
+  },
+  "one_command_launch": {
+    "script": "./up.sh",
+    "status": "Verified active (FastAPI on port 8000, Next.js on port 3000, PostgreSQL on port 5433)"
+  }
+}
