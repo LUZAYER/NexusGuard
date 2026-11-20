@@ -1,0 +1,103 @@
+# SentinelFlow risk configuration.
+#
+# This file holds the DEFAULT configuration. Administrators can override values at runtime
+# through Administration > Risk Configuration; overrides are stored in the database
+# (system_config table), versioned and audited. No business threshold is hard-coded elsewhere.
+
+version: "1.0.0"
+
+# --- Risk aggregation ---------------------------------------------------------------------
+# overall = sum(weight_i * score_i) + corroboration_uplift
+# If an engine is unavailable its weight is redistributed proportionally over the others.
+risk:
+  transaction_weight: 0.30
+  behavior_weight: 0.25
+  ato_weight: 0.30
+  network_weight: 0.15
+  corroboration:
+    # Independent engines that agree are stronger evidence than one engine alone.
+    engine_high_threshold: 75
+    bonus_per_additional_engine: 2.0
+    max_bonus: 8.0
+
+# --- Risk taxonomy (lower bound of each band, inclusive) ----------------------------------
+levels:
+  low: 0
+  moderate: 25
+  high: 50
+  critical: 75
+
+# --- Alerting ------------------------------------------------------------------------------
+alerts:
+  transaction_alert_threshold: 60      # overall risk required to raise a transaction alert
+  walletguard_alert_threshold: 60      # ATO risk required to raise a WalletGuard alert
+  grouping_window_minutes: 90          # events on one wallet inside this window share an alert
+
+# --- Behavioral novelty windows (hours) ---------------------------------------------------
+# An entity first observed inside this window is treated as "new" for the customer.
+novelty:
+  device_window_hours: 72
+  location_window_hours: 72
+  recipient_window_hours: 24
+  min_history_for_baseline: 8          # prior transactions before baselines are trusted
+  night_hours: [0, 1, 2, 3, 4, 5]
+
+# --- Signal thresholds ---------------------------------------------------------------------
+signals:
+  amount_deviation_ratio:  { medium: 3.0, high: 6.0, critical: 12.0 }
+  unusual_time_share:      { medium: 0.05 }          # share of history in the event's hour window
+  velocity_10m:            { medium: 3, high: 5 }
+  velocity_1h:             { medium: 6, high: 10 }
+  distinct_recipients_1h:  { medium: 3, high: 5 }
+  impossible_travel_kmh:   { high: 250.0, min_distance_km: 40.0 }
+  unusual_distance_km:     { medium: 60.0, high: 150.0 }
+  device_shared_wallets:   { medium: 3, high: 5 }
+  failed_logins:           { medium: 2, high: 4 }
+  daily_volume_ratio:      { medium: 4.0, high: 8.0 }
+  recipient_fan_in_24h:    { medium: 6, high: 12 }
+
+# --- WalletGuard account-takeover scoring -------------------------------------------------
+walletguard:
+  # Final ATO score = model_weight * model_probability_score + rules_weight * rule_score
+  model_weight: 0.65
+  rules_weight: 0.35
+  # Points awarded by the rule layer per triggered signal (capped at 100 in total).
+  rule_points:
+    new_device: 20
+    new_location: 15
+    unusual_time: 10
+    large_amount_deviation: 20
+    new_recipient: 10
+    high_velocity: 10
+    suspicious_network: 15
+    impossible_travel: 15
+    failed_login_burst: 8
+    recent_device_registration: 8
+  severity_multiplier: { medium: 0.6, high: 1.0, critical: 1.0 }
+
+# --- Behavioral anomaly mapping -----------------------------------------------------------
+behavior:
+  # Anomaly scores are mapped to a 0-100 risk score via their empirical percentile in the
+  # training distribution: percentile <= floor -> 0, percentile >= ceiling -> 100.
+  percentile_floor: 0.90
+  percentile_ceiling: 0.999
+
+# --- Network engine -------------------------------------------------------------------------
+network:
+  min_wallet_degree: 3
+  betweenness_sample: 300
+  weights:
+    fan_in_concentration: 0.25
+    pass_through: 0.25
+    shared_devices: 0.20
+    newly_connected: 0.15
+    centrality: 0.05
+    cluster_size: 0.10
+
+# --- Model versions ----------------------------------------------------------------------
+models:
+  feature_version: "fv1"
+  transaction_risk_version: "1.2.0"
+  behavior_anomaly_version: "1.1.0"
+  walletguard_version: "1.0.0"
+  network_version: "1.0.0"

@@ -1,0 +1,3 @@
+module.exports=[73174,a=>{"use strict";var b=a.i(87924),c=a.i(72131),d=a.i(50944);a.s(["default",0,function({children:a}){let e=(0,d.usePathname)(),[f,g]=(0,c.useState)(!0);return(0,c.useEffect)(()=>{g(!0);let a=setTimeout(()=>{g(!1)},700);return()=>clearTimeout(a)},[e]),(0,b.jsxs)(b.Fragment,{children:[f&&(0,b.jsx)("div",{className:"laser-progress-bar"}),(0,b.jsx)("div",{className:"page-transition-enter min-h-full",children:a},e)]})}])}];
+
+//# sourceMappingURL=app_%28dashboard%29_template_tsx_1b0cqk0._.js.map

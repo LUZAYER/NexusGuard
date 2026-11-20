@@ -1,0 +1,40 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(landing)/layout,_N_T_/(landing)/changelog/layout,_N_T_/(landing)/changelog/page,_N_T_/changelog"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGxhbmRpbmcp",
+    "/!KGxhbmRpbmcp/changelog/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 32,
+        "slots": {
+          "children": {
+            "hints": 64,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/8ffd526259893a936f877e877a7c3c1b43e9cc177fda20ba1aaa1d4a158a7a08/$/changelog",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(landing)/changelog/page"
+    },
+    "isFallback": false
+  }
+}

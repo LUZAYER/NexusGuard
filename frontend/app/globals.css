@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ── View Transitions API (Circular Wipe Reveal from Video) ─────────────── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 99999;
+}
+
+/* ── Obsidian Dark Theme (Default Luxury Obsidian Magma) ───────────────── */
+:root,
+html.dark,
+html.theme-obsidian,
+[data-theme="dark"],
+[data-theme="obsidian"] {
+  color-scheme: dark;
+  --background: #050607;
+  --background-secondary: #090a0e;
+  --background-tertiary: #101217;
+  --foreground: #f6f7f9;
+  --foreground-muted: #9ba3af;
+  --card-bg: rgba(12, 13, 18, 0.88);
+  --glass-bg: rgba(9, 10, 14, 0.78);
+  --glass-border: rgba(249, 115, 22, 0.22);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-border-hover: rgba(249, 115, 22, 0.45);
+  --accent-primary: #f97316;
+  --accent-secondary: #ea580c;
+  --accent-glow: rgba(249, 115, 22, 0.38);
+  --accent-subtle: rgba(249, 115, 22, 0.12);
+  --surface-hover: rgba(255, 255, 255, 0.04);
+  --badge-bg: rgba(249, 115, 22, 0.14);
+  --badge-border: rgba(249, 115, 22, 0.35);
+  --badge-text: #fb923c;
+  --accent-red: #ef4444;
+  --accent-crimson: #dc2626;
+  --accent-ruby: #b91c1c;
+  --scrollbar-thumb: #3a2215;
+  --scrollbar-track: #050607;
+}
+
+/* ── Alabaster Light Theme (Minimal Luxury Day Mode) ───────────────────── */
+html.light,
+html.theme-alabaster,
+[data-theme="light"],
+[data-theme="alabaster"] {
+  color-scheme: light;
+  --background: #f8f9fa;
+  --background-secondary: #ffffff;
+  --background-tertiary: #f1f3f5;
+  --foreground: #090d16;
+  --foreground-muted: #475569;
+  --card-bg: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(226, 232, 240, 0.95);
+  --card-border: rgba(226, 232, 240, 0.95);
+  --card-border-hover: rgba(234, 88, 12, 0.4);
+  --accent-primary: #ea580c;
+  --accent-secondary: #c2410c;
+  --accent-glow: rgba(234, 88, 12, 0.22);
+  --accent-subtle: rgba(234, 88, 12, 0.08);
+  --surface-hover: rgba(241, 245, 249, 0.85);
+  --badge-bg: rgba(234, 88, 12, 0.08);
+  --badge-border: rgba(234, 88, 12, 0.3);
+  --badge-text: #c2410c;
+  --accent-red: #dc2626;
+  --accent-crimson: #b91c1c;
+  --accent-ruby: #991b1b;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-track: #f1f5f9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Plus Jakarta Sans', var(--font-inter), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ── Typography Helpers ────────────────────────────────────────────────── */
+.font-serif-luxury {
+  font-family: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
+  font-feature-settings: "liga" 1, "dlig" 1;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+/* ── Critical Dark Mode Safeguards (Fixes White Table in Dark Mode) ────── */
+html.dark .bg-white,
+html.dark .bg-slate-50,
+html.dark .bg-slate-100,
+html.dark .bg-slate-200 {
+  background-color: var(--card-bg) !important;
+  color: var(--foreground) !important;
+}
+
+html.dark .border-slate-200,
+html.dark .border-slate-300,
+html.dark .border-slate-100 {
+  border-color: var(--card-border) !important;
+}
+
+html.dark .text-slate-900,
+html.dark .text-slate-800,
+html.dark .text-slate-700 {
+  color: var(--foreground) !important;
+}
+
+html.dark .text-slate-600,
+html.dark .text-slate-500 {
+  color: var(--foreground-muted) !important;
+}
+
+html.dark table thead,
+html.dark .bg-slate-100 thead {
+  background-color: var(--background-secondary) !important;
+  color: var(--foreground-muted) !important;
+  border-color: var(--card-border) !important;
+}
+
+html.dark table tbody tr {
+  border-color: var(--card-border) !important;
+}
+
+html.dark table tbody tr:hover {
+  background-color: var(--surface-hover) !important;
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: var(--background-secondary) !important;
+  color: var(--foreground) !important;
+  border-color: var(--card-border) !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* ── Light Mode Color Overrides ────────────────────────────────────────── */
+html.light .bg-slate-950,
+html.light .bg-slate-900,
+html.light .bg-slate-900\/40,
+html.light .bg-slate-900\/50,
+html.light .bg-slate-900\/60,
+html.light .bg-slate-900\/70,
+html.light .bg-slate-900\/80,
+html.light .bg-slate-900\/90,
+html.light .bg-slate-950\/80,
+html.light .bg-slate-950\/90,
+html.light .bg-slate-950\/60,
+html.light .bg-slate-950\/40 {
+  background-color: var(--card-bg) !important;
+  color: #0f172a !important;
+}
+
+html.light aside,
+html.light header {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-color: var(--card-border) !important;
+}
+
+html.light .border-slate-800,
+html.light .border-slate-800\/60,
+html.light .border-slate-800\/80,
+html.light .border-slate-700,
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20,
+html.light .border-white\/5 {
+  border-color: var(--card-border) !important;
+}
+
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-100,
+html.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-300,
+html.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+html.light button.text-white,
+html.light a.text-white,
+html.light [class*="bg-indigo-"] .text-white,
+html.light [class*="bg-indigo-"],
+html.light [class*="bg-red-"] .text-white,
+html.light [class*="bg-red-"],
+html.light [class*="bg-cyan-"] .text-white,
+html.light [class*="bg-gradient-"] .text-white,
+html.light [class*="bg-emerald-"] .text-white {
+  color: #ffffff;
+}
+
+html.light .bg-white\/5,
+html.light .bg-white\/10 {
+  background-color: var(--surface-hover) !important;
+}
+
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(226, 232, 240, 0.95) !important;
+}
+
+/* ── Obsidian Minimal Design System ───────────────────────────────────── */
+.obsidian-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+}
+
+html.light .obsidian-card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+.obsidian-card:hover {
+  border-color: var(--card-border-hover);
+}
+
+.obsidian-watermark {
+  font-family: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: -0.04em;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.04;
+}
+
+html.light .obsidian-watermark {
+  opacity: 0.05;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── Masterclass Transitions & Animations ───────────────────────────────── */
+@keyframes masterclassLaser {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.3;
+  }
+  35% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes masterclassReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.996);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes masterclassShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.page-transition-enter {
+  animation: masterclassReveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.section-transition-enter {
+  animation: masterclassReveal 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.laser-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #ea580c 20%, #f97316 50%, #38bdf8 80%, transparent 100%);
+  box-shadow: 0 0 16px 3px rgba(249, 115, 22, 0.65), 0 0 6px rgba(56, 189, 248, 0.8);
+  z-index: 999999;
+  pointer-events: none;
+  animation: masterclassLaser 0.68s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+}
+
+.masterclass-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: masterclassShimmer 1.4s infinite linear;
+}
+
+html.light .masterclass-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(226, 232, 240, 0.6) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(226, 232, 240, 0.6) 100%
+  );
+  background-size: 200% 100%;
+  animation: masterclassShimmer 1.4s infinite linear;
+}
+
+.radar-sweep-beam {
+  animation: radarSweep 4s linear infinite;
+  transform-origin: center center;
+}
+

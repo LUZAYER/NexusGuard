@@ -1,0 +1,40 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(landing)/layout,_N_T_/(landing)/careers/layout,_N_T_/(landing)/careers/page,_N_T_/careers"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGxhbmRpbmcp",
+    "/!KGxhbmRpbmcp/careers/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 32,
+        "slots": {
+          "children": {
+            "hints": 64,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/8ad9a2c1e249f277a52fee4b3d62dbf51d86f9459a908950bf73f77b6c0c6736/$/careers",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(landing)/careers/page"
+    },
+    "isFallback": false
+  }
+}

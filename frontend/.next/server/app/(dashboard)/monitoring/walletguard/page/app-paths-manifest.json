@@ -1,0 +1,3 @@
+{
+  "/(dashboard)/monitoring/walletguard/page": "app/(dashboard)/monitoring/walletguard/page.js"
+}
